@@ -1,0 +1,108 @@
+body {
+  font-family: sans-serif;
+}
+
+.cal-holder {
+  position: relative;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.cal-trigger-btn {
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cal-content {
+  position: absolute;
+  border: 1px solid #eee;
+  width: 250px;
+  margin: 10px;
+  margin-top: -20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.cal-content > .cal-header {
+  height: 50;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.cal-content > .cal-header > span:nth-child(1),
+.cal-content > .cal-header > span:nth-child(3) {
+  border: 1px solid #888;
+  display: block;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cal-content > .cal-header > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  text-align: center;
+}
+
+.cal-content > .cal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-content > .cal-body > .cal-body-days {
+  display: flex;
+  height: 30px;
+  flex-direction: row;
+}
+
+.cal-content > .cal-body > .cal-body-days > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.cal-content > .cal-body > .cal-body-dates {
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-content > .cal-body > .cal-body-dates > .cal-body-dates-row {
+  display: flex;
+  height: 30px;
+  flex-direction: row;
+  border-top: 1px solid #eee;
+}
+
+.cal-content > .cal-body > .cal-body-dates > .cal-body-dates-row > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cal-content > .cal-body > .cal-body-dates > .cal-body-dates-row > div:hover {
+  background: #eeee;
+}
+
+.cal-content > .cal-body > .cal-body-dates > .cal-body-dates-row > div.today {
+  background: rgba(68, 141, 214, 0.3);
+  color: #fff;
+}
+
+.cal-content > .cal-body > .cal-body-dates > .cal-body-dates-row > div.active {
+  background: rgb(68, 141, 214);
+  color: #fff;
+}
