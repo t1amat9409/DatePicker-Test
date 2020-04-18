@@ -21,5 +21,5 @@ DatePicker.config();
 
 //No target, and with onDateChange callback
 DatePicker.config(null, (date) => {
-  alert(date..toDateString());
+  alert(date.toDateString());
 });
