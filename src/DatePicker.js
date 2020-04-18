@@ -16,8 +16,6 @@ const months = [
   "December"
 ];
 
-console.log(jQuery);
-
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 export default class DatePicker {
@@ -230,22 +228,22 @@ export default class DatePicker {
       this.toggleDatePicker.bind(this)
     );
 
-    /*
     this.click(
       `.${this.id} .cal-content > .cal-header > span:nth-child(1)`,
       this.prev.bind(this)
-    );*/
+    );
 
     this.click(
       `.${this.id} .cal-content > .cal-header > span:nth-child(3)`,
       this.next.bind(this)
     );
+    /*
 
     jQuery(`.${this.id} .cal-content > .cal-header > span:nth-child(1)`).click(
       () => {
         _that.prev();
       }
-    );
+    );*/
 
     const dates = document.querySelectorAll(
       `.${
