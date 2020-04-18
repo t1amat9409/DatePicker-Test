@@ -274,3 +274,5 @@ DatePicker.config = (elm, onDateChange) => {
   const d = new DatePicker(elm, onDateChange);
   return d;
 };
+
+window.DatePicker = DatePicker;
