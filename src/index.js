@@ -18,3 +18,8 @@ const datePicker3 = new DatePicker("#date-picker-3");
 
 //No target
 DatePicker.config();
+
+//No target, and with onDateChange callback
+DatePicker.config(null, (date) => {
+  alert(date..toDateString());
+});
