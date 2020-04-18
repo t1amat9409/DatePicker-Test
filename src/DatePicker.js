@@ -26,10 +26,6 @@ export default class DatePicker {
       document.body.appendChild(this.elem);
     }
     this.elem.tabIndex = 1;
-    this.elem.onblur = () => {
-      this.isShown = false;
-      this.init();
-    };
     if (onDateChange && typeof onDateChange === "function") {
       this.onDateChange = onDateChange;
     }
@@ -62,12 +58,13 @@ export default class DatePicker {
           this.id
         }" data-date="${this.date.getTime()}">
             <div class="cal-trigger-btn" onclick="">${this.currentDate}</div>
-            <div class="cal-content">
+            <div class="cal-content" tabindex="1">
               ${this.renderHeader()}
               ${this.renderBody()}
             </div>
           </div>
         `;
+        document.querySelector(`.${this.id} .cal-content`).focus();
       } else {
         this.elem.innerHTML = `
           <div id="${this.id}" class="cal-holder ${
@@ -228,22 +225,29 @@ export default class DatePicker {
       this.toggleDatePicker.bind(this)
     );
 
+    if(document.querySelector(`.${_that.id} .cal-content`)){
+      document.querySelector(`.${_that.id} .cal-content`).onblur = () => {
+        _that.isShown = false;
+        _that.init();
+      };
+    }
+
+    /*
     this.click(
       `.${this.id} .cal-content > .cal-header > span:nth-child(1)`,
       this.prev.bind(this)
-    );
+    );*/
 
     this.click(
       `.${this.id} .cal-content > .cal-header > span:nth-child(3)`,
       this.next.bind(this)
     );
-    /*
 
     jQuery(`.${this.id} .cal-content > .cal-header > span:nth-child(1)`).click(
       () => {
         _that.prev();
       }
-    );*/
+    );
 
     const dates = document.querySelectorAll(
       `.${
