@@ -1,5 +1,6 @@
 import "./styles.css";
 import DatePicker from "./DatePicker";
+import DatePickerESOld from './DatePicker.old'
 
 document.getElementById("app").innerHTML = `
 <h1>Date Pickers</h1>
@@ -22,4 +23,9 @@ DatePicker.config();
 //No target, and with onDateChange callback
 DatePicker.config(null, (date) => {
   alert(date.toDateString());
+});
+
+//No target, From DatePickerESOld
+DatePickerESOld.config(null, (date)=>{
+  alert(`From DatePickerESOld: ${date.getTime()}`)
 });
