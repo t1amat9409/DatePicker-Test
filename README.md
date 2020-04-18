@@ -23,3 +23,4 @@ Created with CodeSandbox
     //With an onDateChange(date: Date):void callback
     DatePicker.config(null /* or element to attach to*/, (date) => {})
 ```
+[![Edit vanilla](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/t1amat9409/DatePicker-Test/tree/master/?fontsize=14&hidenavigation=1&theme=dark)
