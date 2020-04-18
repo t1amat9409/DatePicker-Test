@@ -20,6 +20,6 @@ Created with CodeSandbox
     //No target
     DatePicker.config();
     
-    //With an onChange(date: Date):void callback
+    //With an onDateChange(date: Date):void callback
     DatePicker.config(null /* or element to attach to*/, (date) => {})
 ```
