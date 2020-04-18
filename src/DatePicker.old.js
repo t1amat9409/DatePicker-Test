@@ -1,4 +1,3 @@
-
 import moment from "moment";
 import jQuery from "jquery";
 import { chunk } from "lodash";
@@ -27,10 +26,6 @@ const DatePickerESOld = function(elem, onDateChange) {
     document.body.appendChild(this.elem);
   }
   this.elem.tabIndex = 1;
-  this.elem.onblur = () => {
-    this.isShown = false;
-    this.init();
-  };
   if (onDateChange && typeof onDateChange === "function") {
     this.onDateChange = onDateChange;
   }
@@ -64,12 +59,13 @@ DatePickerESOld.prototype = {
           this.id
         }" data-date="${this.date.getTime()}">
             <div class="cal-trigger-btn" onclick="">${this.currentDate}</div>
-            <div class="cal-content">
+            <div class="cal-content" tabindex="1">
               ${this.renderHeader()}
               ${this.renderBody()}
             </div>
           </div>
         `;
+        document.querySelector(`.${this.id} .cal-content`).focus();
       } else {
         this.elem.innerHTML = `
           <div id="${this.id}" class="cal-holder ${
@@ -219,6 +215,13 @@ DatePickerESOld.prototype = {
       `.${this.id} .cal-trigger-btn`,
       this.toggleDatePicker.bind(this)
     );
+
+    if (document.querySelector(`.${_that.id} .cal-content`)) {
+      document.querySelector(`.${_that.id} .cal-content`).onblur = () => {
+        _that.isShown = false;
+        _that.init();
+      };
+    }
 
     /*
     this.click(
